@@ -1,0 +1,39 @@
+<div class="chat-container">
+  <div class="chat-header">
+    <h1>Chat Bot</h1>
+  </div>
+  
+  <div #messagesContainer class="messages-container">
+    <div *ngFor="let message of messages" 
+         [ngClass]="{'message': true, 'user-message': message.isUser, 'bot-message': !message.isUser, 'error-message': message.isError}"
+         [@messageAnimation]>
+      <div class="message-content">
+        <div class="avatar" [ngClass]="{'user-avatar': message.isUser, 'bot-avatar': !message.isUser}">
+          {{ message.isUser ? '👤' : (message.isError ? '⚠️' : '🤖') }}
+        </div>
+        <div class="message-bubble">
+          <p>{{ message.content }}</p>
+          <span class="timestamp">{{ message.timestamp | date:'shortTime' }}</span>
+        </div>
+      </div>
+    </div>
+    
+    <div *ngIf="isLoading" class="loading-indicator">
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
+  </div>
+
+  <div class="input-container">
+    <input type="text" 
+           [(ngModel)]="newMessage" 
+           (keyup.enter)="sendMessage()"
+           placeholder="Type your message..."
+           [disabled]="isLoading">
+    <button (click)="sendMessage()" 
+            [disabled]="isLoading || !newMessage.trim()">
+      Send
+    </button>
+  </div>
+</div>
