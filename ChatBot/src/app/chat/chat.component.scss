@@ -37,6 +37,39 @@
   }
 }
 
+.welcome-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  animation: fadeIn 0.5s ease-out;
+
+  h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 2px 10px rgba(110, 142, 251, 0.2);
+  }
+
+  .copyright {
+    font-size: 1.2rem;
+    color: var(--text-light);
+    margin: 0.5rem 0;
+    opacity: 0.9;
+  }
+
+  .rights {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    opacity: 0.7;
+  }
+}
+
 .messages-container {
   flex: 1;
   overflow-y: auto;
@@ -280,5 +313,15 @@
 
   .input-container {
     padding: 15px;
+  }
+
+  .welcome-container {
+    h2 {
+      font-size: 2rem;
+    }
+    
+    .copyright {
+      font-size: 1rem;
+    }
   }
 }
