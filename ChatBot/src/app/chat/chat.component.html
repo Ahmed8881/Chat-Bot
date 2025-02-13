@@ -1,9 +1,15 @@
 <div class="chat-container">
   <div class="chat-header">
-    <h1>Chat Bot</h1>
+    <h1>Gemini Chat</h1>
   </div>
   
   <div #messagesContainer class="messages-container">
+    <div *ngIf="messages.length === 0" class="welcome-container" [@fadeAnimation]>
+      <h2>Welcome to Gemini Chat</h2>
+      <p class="copyright">Made by M Ahmed Butt</p>
+      <p class="rights">All Rights Reserved</p>
+    </div>
+
     <div *ngFor="let message of messages" 
          [ngClass]="{'message': true, 'user-message': message.isUser, 'bot-message': !message.isUser, 'error-message': message.isError}"
          [@messageAnimation]>
