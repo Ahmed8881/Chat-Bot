@@ -5,6 +5,19 @@
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+:root {
+  --primary-gradient: linear-gradient(135deg, #6e8efb, #a777e3);
+  --bg-dark: #1a1a1a;
+  --bg-darker: #121212;
+  --text-light: #e1e1e1;
+  --text-dark: #1a1a1a;
+  --message-bg: #2a2a2a;
+  --user-message-bg: linear-gradient(135deg, #4a6cf7, #8b55e3);
+  --error-bg: #442222;
+  --error-text: #ff6b6b;
+}
+
 body {
-  background: #f0f2f5;
+  background: var(--bg-darker);
+  color: var(--text-light);
 }
